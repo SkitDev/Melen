@@ -36,14 +36,15 @@ public class BotInfoCommand implements ICommand {
         EmbedBuilder eb = EmbedUtils.embedGenerator(jda, "Quelques informations sur le bot");
         eb.addField("Tag :", jda.getSelfUser().getAsTag(), false);
         eb.addField("Uptime :", up, false);
-        eb.addField("Date de création :", date , false);
+        eb.addField("Date de création :", date, false);
         eb.addField("Guildes :", String.valueOf(event.getJDA().getGuilds().size()), false);
         eb.addField("Utilisateurs :", String.valueOf(event.getJDA().getUsers().size()), false);
         eb.addField("Roles :", String.valueOf(event.getJDA().getRoles().size()), false);
         eb.addField("Commandes :", String.valueOf(CommandManager.commands.size()), false);
         eb.addField("Lien d'invitation :", jda.getInviteUrl(Permission.ADMINISTRATOR), false);
         eb.addField("Faire un don :", "https://paypal.me/pools/c/8oaI7Zjbhv", false);
-        eb.addField("Discord :", "Bientôt", false);
+        eb.addField("Discord :", "https://discord.gg/VmuVsce", false);
+        eb.addField("Code source :", "https://github.com/SkitDev/Melen", false);
         eb.addField("Site Web :", "Bientôt", false);
         eb.setThumbnail(jda.getSelfUser().getAvatarUrl());
         event.getChannel().sendMessage(eb.build()).queue();
