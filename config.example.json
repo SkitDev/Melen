@@ -1,0 +1,15 @@
+{
+  "github":"githubapikey",
+  "gameName":[
+    "%guilds% guildes",
+    "%users% utilisateurs",
+    "%roles% roles",
+    "mon code",
+    "la population"
+  ],
+  "prefix":"m!",
+  "mongodburi":"mongodb://localhost/admin",
+  "ownerID":"id",
+  "token":"token",
+  "mongodbdatabase":"Melen"
+}
