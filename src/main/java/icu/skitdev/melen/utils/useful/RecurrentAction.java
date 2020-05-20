@@ -44,12 +44,24 @@ public class RecurrentAction {
         event.getChannel().sendMessage(EmbedUtils.embedGenerator(event.getJDA(), "Erreur").setDescription("Tu ne possèdes pas la permission pour faire cela !").build()).queue();
     }
 
+    public static void noSelfPerm(GuildMessageReceivedEvent event) {
+        event.getChannel().sendMessage(EmbedUtils.embedGenerator(event.getJDA(), "Erreur").setDescription("Je ne possède pas la permission pour faire cela !").build()).queue();
+    }
+
     public static void onCooldown(GuildMessageReceivedEvent event) {
         event.getChannel().sendMessage(EmbedUtils.embedGenerator(event.getJDA(), "Erreur").setDescription("Tu ne peux pas utiliser cette commande pour le moment !").build()).queue();
     }
 
     public static void noMessage(GuildMessageReceivedEvent event) {
         event.getChannel().sendMessage(EmbedUtils.embedGenerator(event.getJDA(), "Erreur").setDescription("Merci d'indiquer un message !").build()).queue();
+    }
+
+    public static void alreadyConnected(GuildMessageReceivedEvent event) {
+        event.getChannel().sendMessage(EmbedUtils.embedGenerator(event.getJDA(), "Erreur").setDescription("Je suis déjà connecté à un salon vocal !").build()).queue();
+    }
+
+    public static void notInAVoiceChannel(GuildMessageReceivedEvent event) {
+        event.getChannel().sendMessage(EmbedUtils.embedGenerator(event.getJDA(), "Erreur").setDescription("Tu dois être dans un salon vocal !").build()).queue();
     }
 
     public static void notANumber(GuildMessageReceivedEvent event) {
@@ -62,5 +74,17 @@ public class RecurrentAction {
 
     public static void sendPrivateChannel(User user, EmbedBuilder content) {
         user.openPrivateChannel().queue(privateChannel -> privateChannel.sendMessage(content.build()).queue());
+    }
+
+    public static void notConnected(GuildMessageReceivedEvent event) {
+        event.getChannel().sendMessage(EmbedUtils.embedGenerator(event.getJDA(), "Erreur").setDescription("Je ne suis pas connecté à un salon vocal !").build()).queue();
+    }
+
+    public static void notInTheSameChannel(GuildMessageReceivedEvent event) {
+        event.getChannel().sendMessage(EmbedUtils.embedGenerator(event.getJDA(), "Erreur").setDescription("Tu dois être dans le même salon vocal que moi !").build()).queue();
+    }
+
+    public static void notALink(GuildMessageReceivedEvent event) {
+        event.getChannel().sendMessage(EmbedUtils.embedGenerator(event.getJDA(), "Erreur").setDescription("Merci d'indiquer un lien !").build()).queue();
     }
 }

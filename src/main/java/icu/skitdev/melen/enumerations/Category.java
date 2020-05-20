@@ -5,7 +5,8 @@ public enum Category {
     INFORMATIVE("Informative"),
     MODERATION("Modération"),
     FUN("Fun"),
-    AUTRE("Autre");
+    AUTRE("Autre"),
+    MUSIC("Musique");
 
     private final String name;
 
@@ -13,7 +14,7 @@ public enum Category {
         this.name = name;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 }

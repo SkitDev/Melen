@@ -79,6 +79,7 @@ public class HelpCommand implements ICommand {
         StringBuilder mod = new StringBuilder();
         StringBuilder fun = new StringBuilder();
         StringBuilder other = new StringBuilder();
+        StringBuilder music = new StringBuilder();
 manager.getCommands().forEach(
                 (command) -> {
                     if (command.getCategory() == Category.UTILITAIRE) {
@@ -87,15 +88,17 @@ manager.getCommands().forEach(
                     if (command.getCategory() == Category.INFORMATIVE) {
                         info.append("**").append(prefix).append(command.getInvoke()).append("** : *").append(command.getDescription()).append("*\n");
                     }
-                    if (command.getCategory() == Category.MODERATION){
+                    if (command.getCategory() == Category.MODERATION) {
                         mod.append("**").append(prefix).append(command.getInvoke()).append("** : *").append(command.getDescription()).append("*\n");
 
                     }
-                    if (command.getCategory() == Category.FUN){
+                    if (command.getCategory() == Category.FUN) {
                         fun.append("**").append(prefix).append(command.getInvoke()).append("** : *").append(command.getDescription()).append("*\n");
-
                     }
-                    if (command.getCategory() == Category.AUTRE) {
+                    if (command.getCategory() == Category.MUSIC) {
+                        music.append("**").append(prefix).append(command.getInvoke()).append("** : *").append(command.getDescription()).append("*\n");
+                    }
+                    if (command.getCategory() == null || command.getCategory() == Category.AUTRE) {
                         other.append("**").append(prefix).append(command.getInvoke()).append("** : *").append(command.getDescription()).append("*\n");
                     }
                 });
@@ -107,6 +110,8 @@ manager.getCommands().forEach(
             eb.addField("Fun :", fun.toString(), false);
         if (!mod.toString().isEmpty())
             eb.addField("Modération :", mod.toString(), false);
+        if (!music.toString().isEmpty())
+            eb.addField("Musique :", music.toString(), false);
         if (!other.toString().isEmpty())
             eb.addField("Autre :", other.toString(), false);
         event.getChannel().sendMessage(eb.build()).queue();
