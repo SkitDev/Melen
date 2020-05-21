@@ -6,10 +6,7 @@ import icu.skitdev.melen.commands.fun.LoveCalcCommand;
 import icu.skitdev.melen.commands.info.BotInfoCommand;
 import icu.skitdev.melen.commands.info.ServerInfoCommand;
 import icu.skitdev.melen.commands.info.UserInfoCommand;
-import icu.skitdev.melen.commands.mod.BanCommand;
-import icu.skitdev.melen.commands.mod.KickCommand;
-import icu.skitdev.melen.commands.mod.MuteCommand;
-import icu.skitdev.melen.commands.mod.UnmuteCommand;
+import icu.skitdev.melen.commands.mod.*;
 import icu.skitdev.melen.commands.music.*;
 import icu.skitdev.melen.commands.other.ShutdownCommand;
 import icu.skitdev.melen.commands.utils.*;
@@ -37,6 +34,7 @@ public class CommandManager {
 
         //moderation
         addCommand(new BanCommand());
+        addCommand(new ClearCommand());
         addCommand(new KickCommand());
         addCommand(new MuteCommand());
         addCommand(new UnmuteCommand());
@@ -49,6 +47,7 @@ public class CommandManager {
         addCommand(new QueueCommand());
         addCommand(new SkipCommand());
         addCommand(new StopCommand());
+        addCommand(new PauseCommand());
 
         //other
         addCommand(new ShutdownCommand());
